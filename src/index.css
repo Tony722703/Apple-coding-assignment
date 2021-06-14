@@ -1,0 +1,46 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+  background: black;
+  color: white;
+}
+.main {
+  margin: 50px 100px;
+}
+h3 {
+  display: block;
+}
+
+.items {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin-left: 10px;
+}
+
+.title,
+.button {
+  text-align: center;
+}
+.item div button {
+  visibility: hidden;
+}
+.item:hover div button {
+  visibility: visible;
+}
+
+button:hover {
+  background: lightblue;
+  border-radius: 3px;
+}
+
+.logo {
+  width: 200px;
+}
+
+h3{
+  margin-top: 20px;
+}
