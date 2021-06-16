@@ -6,7 +6,7 @@ class Row extends Component {
   render() {
     const { type, list, recommendations } = this.props;
     const data = type === "My List" ? list : recommendations;
-
+    console.log(this.props);
     return (
       <div className="list">
         <h3 className="header">{type}</h3>

@@ -1,10 +1,21 @@
 import React, {Component} from 'react';
 import Row from "../Row";
 import Bottom from "../Bottom";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchData();
+    console.log("componentDidMount: ", this.props.loading)
+  }
+
   render() {
+    console.log('Render lifecycle', this.props.loading)
+
     return (
+      (this.props.loading!==true)?
       <div className="main">
         <div>
           <img
@@ -17,8 +28,26 @@ class App extends Component {
         <Row type="Recommendations" />
         <Bottom />
       </div>
+        :<div>loading...</div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    list: state.myList,
+    recommendations: state.recommendations,
+    loading: state.loading
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchData: () => {
+      dispatch(actions.fetchData());
+    }
+  };
+};
 
-export default App;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
